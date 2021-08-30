@@ -1,6 +1,6 @@
 package br.com.texoit.premio.config;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -33,12 +33,14 @@ public class SwaggerConfig {
     }
 
 	private List<ResponseMessage> responseMessage() {
-	    return new ArrayList<ResponseMessage>() {{
-	        add(new ResponseMessageBuilder()
-	            .code(404)
-	            .message("Não encontrado")
-	            .build());
-	    }};
+		
+		final List<ResponseMessage> responseMessage = Arrays.asList(
+                new ResponseMessageBuilder().code(404)
+                                            .message("Não encontrado")
+                                            .build()
+        );
+		
+		return responseMessage;
 	}
 	
 	private ApiInfo apiInfo() {
